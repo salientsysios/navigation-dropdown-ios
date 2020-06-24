@@ -1,0 +1,20 @@
+included: # paths to include during linting. `--path` is ignored if present.
+    - ./../../Sources
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+disabled_rules: # rule identifiers to exclude from running
+  - force_cast
+  - identifier_name
+  - line_length
+  - nesting
+
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - trailing_closure
+  - operator_usage_whitespace
+
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+  - explicit_self
