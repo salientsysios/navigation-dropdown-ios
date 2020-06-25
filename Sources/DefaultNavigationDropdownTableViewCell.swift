@@ -17,7 +17,7 @@ open class DefaultNavigationDropdownTableViewCell: UITableViewCell {
     override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        let selectedTintColor: UIColor = selected ? Config.List.DefaultCell.selectedTintColor : Config.List.DefaultCell.tintColor
+        let selectedTintColor: UIColor = selected ? NavigationDropdownConfig.List.DefaultCell.selectedTintColor : NavigationDropdownConfig.List.DefaultCell.tintColor
         tintColor = selectedTintColor
         imageView?.tintColor = selectedTintColor
     }
@@ -25,7 +25,7 @@ open class DefaultNavigationDropdownTableViewCell: UITableViewCell {
     override open func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
 
-        let highlightedTintColor: UIColor = highlighted ? Config.List.DefaultCell.highlightedTintColor : Config.List.DefaultCell.tintColor
+        let highlightedTintColor: UIColor = highlighted ? NavigationDropdownConfig.List.DefaultCell.highlightedTintColor : NavigationDropdownConfig.List.DefaultCell.tintColor
         tintColor = highlightedTintColor
         imageView?.tintColor = highlightedTintColor
     }
@@ -39,19 +39,19 @@ extension DefaultNavigationDropdownTableViewCell {
     }
 
     func configureLabel() {
-        textLabel?.textColor = Config.List.DefaultCell.Text.color
-        textLabel?.highlightedTextColor = Config.List.DefaultCell.Text.highlightedTextColor
+        textLabel?.textColor = NavigationDropdownConfig.List.DefaultCell.Text.color
+        textLabel?.highlightedTextColor = NavigationDropdownConfig.List.DefaultCell.Text.highlightedTextColor
         textLabel?.numberOfLines = 0
         textLabel?.lineBreakMode = .byWordWrapping
 
-        if let font = Config.List.DefaultCell.Text.font {
+        if let font = NavigationDropdownConfig.List.DefaultCell.Text.font {
             textLabel?.font = font
         }
     }
 
     func configureUI() {
-        backgroundColor = Config.List.backgroundColor
-        tintColor = Config.List.DefaultCell.tintColor
+        backgroundColor = NavigationDropdownConfig.List.backgroundColor
+        tintColor = NavigationDropdownConfig.List.DefaultCell.tintColor
 
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = .white

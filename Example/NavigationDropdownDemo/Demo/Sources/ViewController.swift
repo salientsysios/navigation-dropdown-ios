@@ -3,7 +3,7 @@ import NavigationDropdown
 class ViewController: UIViewController {
 
   @IBOutlet weak var button: UIButton!
-  var titleView: NavigationTitleButton!
+  var titleView: NavigationDropdown!
 
   let color = UIColor(red: 22 / 255, green: 160 / 255, blue: 33 / 255, alpha: 1)
 
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     let items: [MyNavigationMenuItem] = texts.enumerated().map { (index, element) in
         return MyNavigationMenuItem(id: index, title: element, icon: UIImage(named: "firewatch"))
     }
-    titleView = NavigationTitleButton(with: self, items: items )
+    titleView = NavigationDropdown(with: self, items: items )
     titleView?.itemSelectionHandler = { [weak self] item in
        self?.button.setTitle(item.title, for: .normal)
        self?.button.layoutIfNeeded()
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     @IBAction func btnTapped(_ sender: Any) {}
 }
 
-struct MyNavigationMenuItem: NavigationMenuItem {
+struct MyNavigationMenuItem: NavigationDropdownItem {
     let id: Int
     let title: String
     let icon: UIImage?

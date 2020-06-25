@@ -1,6 +1,6 @@
 import UIKit
 
-public struct Config {
+public struct NavigationDropdownConfig {
     public static var topLineColor: UIColor = .white
     public static var springAnimationDamping: CGFloat = 0.7
 

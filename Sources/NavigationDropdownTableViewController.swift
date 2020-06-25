@@ -60,10 +60,10 @@ open class NavigationDropdownTableViewController: UIViewController, UITableViewD
         let tableView = UITableView()
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.clear
-        tableView.rowHeight = Config.List.rowHeight
+        tableView.rowHeight = NavigationDropdownConfig.List.rowHeight
 
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = Config.List.DefaultCell.separatorColor
+        tableView.separatorColor = NavigationDropdownConfig.List.DefaultCell.separatorColor
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 
         tableView.dataSource = self
@@ -82,7 +82,7 @@ open class NavigationDropdownTableViewController: UIViewController, UITableViewD
 
     func makeTopView() -> UIView {
         let view = UIView()
-        view.backgroundColor = Config.List.backgroundColor
+        view.backgroundColor = NavigationDropdownConfig.List.backgroundColor
 
         return view
     }

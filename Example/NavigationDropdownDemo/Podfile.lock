@@ -1,5 +1,5 @@
 PODS:
-  - NavigationDropdown (1.0.0)
+  - NavigationDropdown (0.0.1)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  NavigationDropdown: 55563939d2a829d4d40f1336902e9dce0547c4e1
+  NavigationDropdown: 473f4c20ae56016cef770834bc4e92731a90ee47
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
 PODFILE CHECKSUM: cac41aeb901b475fa63e63a886a033321388be17
