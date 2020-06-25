@@ -1,6 +1,6 @@
 import UIKit
 
-open class NavigationTitleButton: UIButton {
+open class NavigationDropdown: UIButton {
     open var dropdownController: NavigationDropdownController!
     open var itemSelectionHandler: NavigationDropdownItemSelectionHandler?
 
@@ -62,7 +62,7 @@ open class NavigationTitleButton: UIButton {
     }
 }
 
-extension NavigationTitleButton {
+private extension NavigationDropdown {
     func setTitle(_ item: NavigationDropdownItem) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -70,15 +70,15 @@ extension NavigationTitleButton {
         paragraphStyle.lineHeightMultiple = 0.85
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
-            .foregroundColor: Config.Text.color,
-            .font: Config.Text.font
+            .foregroundColor: NavigationDropdownConfig.Text.color,
+            .font: NavigationDropdownConfig.Text.font
         ]
         let title = NSAttributedString(string: item.title, attributes: attributes)
         setAttributedTitle(title, for: .normal)
     }
 
     func configure() {
-        tintColor = Config.tintColor
+        tintColor = NavigationDropdownConfig.tintColor
 
         titleLabel?.numberOfLines = 2
         titleLabel?.adjustsFontSizeToFitWidth = true
@@ -88,10 +88,26 @@ extension NavigationTitleButton {
     }
 }
 
-extension NavigationTitleButton {
-    open func setSelectedItem(_ item: NavigationDropdownItem) {
+// MARK: - Update Items
+public extension NavigationDropdown {
+    func setSelectedItem(_ item: NavigationDropdownItem) {
         setTitle(item)
         sizeToFit()
         dropdownController.setSelectedItem(item)
+    }
+
+    func updateItems(_ items: [NavigationDropdownItem]) {
+        dropdownController.updateItems(items)
+    }
+}
+
+// MARK: - Show/Hide
+public extension NavigationDropdown {
+    func showDropdown() {
+        dropdownController.show()
+    }
+
+    func hideDropdown() {
+        dropdownController.hide()
     }
 }

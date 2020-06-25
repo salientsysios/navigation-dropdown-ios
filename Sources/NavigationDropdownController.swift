@@ -78,7 +78,7 @@ open class NavigationDropdownController: UIViewController {
 
     func makeTopLine() -> CALayer {
         let layer = CALayer()
-        layer.backgroundColor = Config.topLineColor.cgColor
+        layer.backgroundColor = NavigationDropdownConfig.topLineColor.cgColor
 
         return layer
     }
@@ -129,7 +129,7 @@ open class NavigationDropdownController: UIViewController {
         }
 
         UIView.animate(withDuration: 0.5, delay: 0,
-                       usingSpringWithDamping: Config.springAnimationDamping,
+                       usingSpringWithDamping: NavigationDropdownConfig.springAnimationDamping,
                        initialSpringVelocity: 0.5,
                        options: [],
                        animations: {
