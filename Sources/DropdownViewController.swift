@@ -5,7 +5,7 @@ extension NavigationDropdown {
 
     open class DropdownViewController: UIViewController {
         open var animationBlock: AnimationBlock?
-        open fileprivate(set) var contentViewController: TableViewController?
+        open fileprivate(set) var contentViewController: UIViewController?
 
         weak var containerView: UIView?
         lazy var backgroundView: UIView = self.makeBackgroundView()
@@ -17,7 +17,7 @@ extension NavigationDropdown {
 
         // MARK: - Initialization
 
-        public convenience init?(contentViewController: TableViewController, containerViewController: UIViewController) {
+        public convenience init?(contentViewController: DefaultContentViewController, containerViewController: UIViewController) {
             guard let navigationController = containerViewController.navigationController, let containerView = navigationController.tabBarController?.view ?? navigationController.view
                 else { return nil }
 
@@ -25,7 +25,7 @@ extension NavigationDropdown {
             self.containerViewController = containerViewController
         }
 
-        public required init(contentViewController: TableViewController, containerView: UIView) {
+        public required init(contentViewController: DefaultContentViewController, containerView: UIView) {
             self.containerView = containerView
 
             super.init(nibName: nil, bundle: nil)
@@ -88,11 +88,11 @@ extension NavigationDropdown.DropdownViewController {
 
     // MARK: - Update
     open func updateItems(_ items: [NavigationDropdown.Item]) {
-        contentViewController?.items = items
+        (contentViewController as? NavigationDropdown.DefaultContentViewController)?.items = items
     }
 
     open func setSelectedItem(_ item: NavigationDropdown.Item) {
-        contentViewController?.setSelectedItem(item)
+        (contentViewController as? NavigationDropdown.DefaultContentViewController)?.setSelectedItem(item)
     }
 
     // MARK: - Action

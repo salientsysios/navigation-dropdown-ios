@@ -2,7 +2,7 @@ import UIKit
 
 open class NavigationDropdown: UIButton {
     open var dropdownViewController: DropdownViewController!
-    open var itemSelectionHandler: ItemSelectionHandler?
+    open var itemSelectionHandler: Item.SelectionHandler?
 
     // MARK: - Initialization
 
@@ -21,7 +21,7 @@ open class NavigationDropdown: UIButton {
         }
 
         // Content
-        let contentViewController = TableViewController(items: items, selectedItem: itemToSelect)
+        let contentViewController = DefaultContentViewController(items: items, selectedItem: itemToSelect)
 
         // Dropdown
         guard let dropdownViewController = DropdownViewController(contentViewController: contentViewController, containerViewController: containerViewController)

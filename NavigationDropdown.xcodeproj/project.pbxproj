@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E81E191824A51D9F000B32CE /* DropdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81E191724A51D9F000B32CE /* DropdownViewController.swift */; };
 		E8D9E0FA24A4085900F452A0 /* NavigationDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F324A4085900F452A0 /* NavigationDropdown.swift */; };
 		E8D9E0FB24A4085900F452A0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F424A4085900F452A0 /* Config.swift */; };
 		E8D9E0FC24A4085900F452A0 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F524A4085900F452A0 /* DefaultTableViewCell.swift */; };
 		E8D9E0FD24A4085900F452A0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F624A4085900F452A0 /* Item.swift */; };
 		E8D9E0FE24A4085900F452A0 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F724A4085900F452A0 /* AssetManager.swift */; };
-		E8D9E0FF24A4085900F452A0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F824A4085900F452A0 /* TableViewController.swift */; };
-		E8D9E10024A4085900F452A0 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F924A4085900F452A0 /* ContentViewController.swift */; };
+		E8D9E0FF24A4085900F452A0 /* DefaultContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D9E0F824A4085900F452A0 /* DefaultContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D5B2E89F1C3A780C00C0327D /* NavigationDropdown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavigationDropdown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E81E191724A51D9F000B32CE /* DropdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownViewController.swift; sourceTree = "<group>"; };
 		E89893B824A3EFB800EEBE4B /* NavigationDropdown.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NavigationDropdown.xcassets; sourceTree = "<group>"; };
 		E8D9E0F324A4085900F452A0 /* NavigationDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDropdown.swift; sourceTree = "<group>"; };
 		E8D9E0F424A4085900F452A0 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E8D9E0F524A4085900F452A0 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		E8D9E0F624A4085900F452A0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E8D9E0F724A4085900F452A0 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
-		E8D9E0F824A4085900F452A0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		E8D9E0F924A4085900F452A0 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		E8D9E0F824A4085900F452A0 /* DefaultContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +68,12 @@
 			isa = PBXGroup;
 			children = (
 				E8D9E0F324A4085900F452A0 /* NavigationDropdown.swift */,
-				E8D9E0F424A4085900F452A0 /* Config.swift */,
-				E8D9E0F724A4085900F452A0 /* AssetManager.swift */,
 				E8D9E0F624A4085900F452A0 /* Item.swift */,
+				E8D9E0F424A4085900F452A0 /* Config.swift */,
+				E81E191724A51D9F000B32CE /* DropdownViewController.swift */,
 				E8D9E0F524A4085900F452A0 /* DefaultTableViewCell.swift */,
-				E8D9E0F824A4085900F452A0 /* TableViewController.swift */,
-				E8D9E0F924A4085900F452A0 /* ContentViewController.swift */,
+				E8D9E0F824A4085900F452A0 /* DefaultContentViewController.swift */,
+				E8D9E0F724A4085900F452A0 /* AssetManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -158,12 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8D9E0FF24A4085900F452A0 /* TableViewController.swift in Sources */,
-				E8D9E10024A4085900F452A0 /* ContentViewController.swift in Sources */,
+				E8D9E0FF24A4085900F452A0 /* DefaultContentViewController.swift in Sources */,
 				E8D9E0FC24A4085900F452A0 /* DefaultTableViewCell.swift in Sources */,
 				E8D9E0FA24A4085900F452A0 /* NavigationDropdown.swift in Sources */,
 				E8D9E0FB24A4085900F452A0 /* Config.swift in Sources */,
 				E8D9E0FE24A4085900F452A0 /* AssetManager.swift in Sources */,
+				E81E191824A51D9F000B32CE /* DropdownViewController.swift in Sources */,
 				E8D9E0FD24A4085900F452A0 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
