@@ -1,11 +1,9 @@
 import UIKit
 
 extension NavigationDropdown {
-    public typealias ItemSelectionHandler = ((Item) -> Void)
-
-    open class TableViewController: UIViewController {
+    open class DefaultContentViewController: UIViewController {
         open lazy var tableView: UITableView = self.makeTableView()
-        open var itemSelectionHandler: ItemSelectionHandler?
+        open var itemSelectionHandler: Item.SelectionHandler?
         open var dismiss: (() -> Void)?
 
         public var items: [Item] {
@@ -53,7 +51,7 @@ extension NavigationDropdown {
 }
 
 // MARK: - Controls
-extension NavigationDropdown.TableViewController {
+extension NavigationDropdown.DefaultContentViewController {
     func makeTableView() -> UITableView {
         let tableView = UITableView()
         tableView.tableFooterView = UIView()
@@ -93,14 +91,14 @@ extension NavigationDropdown.TableViewController {
 }
 
 // MARK: - UIGestureRecognizerDelegate
-extension NavigationDropdown.TableViewController: UIGestureRecognizerDelegate {
+extension NavigationDropdown.DefaultContentViewController: UIGestureRecognizerDelegate {
     open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return touch.view is UITableView
     }
 }
 
     // MARK: - UITableViewDataSource
-extension NavigationDropdown.TableViewController: UITableViewDataSource {
+extension NavigationDropdown.DefaultContentViewController: UITableViewDataSource {
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -118,7 +116,7 @@ extension NavigationDropdown.TableViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension NavigationDropdown.TableViewController: UITableViewDelegate {
+extension NavigationDropdown.DefaultContentViewController: UITableViewDelegate {
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         setSelectedItem(items[indexPath.row])
         itemSelectionHandler?(items[indexPath.row])
@@ -126,13 +124,13 @@ extension NavigationDropdown.TableViewController: UITableViewDelegate {
 }
 
 // MARK: - UIScrollViewDelegate
-extension NavigationDropdown.TableViewController: UIScrollViewDelegate {
+extension NavigationDropdown.DefaultContentViewController: UIScrollViewDelegate {
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         topView.frame = CGRect(origin: .zero, size: CGSize(width: scrollView.bounds.size.width, height: abs(scrollView.contentOffset.y)))
     }
 }
 
-extension NavigationDropdown.TableViewController {
+extension NavigationDropdown.DefaultContentViewController {
     func setSelectedItem(_ item: NavigationDropdown.Item) {
         deselectPreviouslySelectedItem(item)
 
