@@ -1,17 +1,13 @@
 import UIKit
 
 open class NavigationDropdown: UIButton {
-    open var dropdownController: NavigationDropdownController!
-    open var itemSelectionHandler: NavigationDropdownItemSelectionHandler?
+    open var dropdownViewController: DropdownViewController!
+    open var itemSelectionHandler: ItemSelectionHandler?
 
     // MARK: - Initialization
 
-    public init?(with containerViewController: UIViewController, items: [NavigationDropdownItem], selectedItem: NavigationDropdownItem? = nil) {
+    public init?(with containerViewController: UIViewController, items: [Item], selectedItem: Item? = nil) {
         super.init(frame: .zero)
-
-        if let item = selectedItem ?? items.first {
-            setTitle(item)
-        }
 
         let arrowImage = AssetManager.image(named: "dropdown_arrow")
         setImage(arrowImage, for: .normal)
@@ -19,27 +15,32 @@ open class NavigationDropdown: UIButton {
 
         addTarget(self, action: #selector(buttonTouched(_:)), for: .touchUpInside)
 
+        let itemToSelect = selectedItem ?? items.first
+        if let item = itemToSelect {
+            setTitle(item)
+        }
+
         // Content
-        let contentController = NavigationDropdownTableViewController(items: items, selectedItem: selectedItem)
+        let contentViewController = TableViewController(items: items, selectedItem: itemToSelect)
 
         // Dropdown
-        guard let dropdownController = NavigationDropdownController(contentController: contentController, containerViewController: containerViewController)
+        guard let dropdownViewController = DropdownViewController(contentViewController: contentViewController, containerViewController: containerViewController)
             else { return nil }
 
-        self.dropdownController = dropdownController
+        self.dropdownViewController = dropdownViewController
 
-        contentController.action = { [weak self, weak dropdownController] item in
-            self?.setSelectedItem(item)
+        contentViewController.itemSelectionHandler = { [weak self] item in
+            self?.setTitle(item)
             self?.itemSelectionHandler?(item)
-            dropdownController?.hide()
+            self?.dropdownViewController.hide()
         }
 
-        contentController.dismiss = { [weak dropdownController] in
-            dropdownController?.hide()
+        contentViewController.dismiss = { [weak self] in
+            self?.dropdownViewController.hide()
         }
 
-        dropdownController.animationBlock = { [weak self] showing in
-            self?.imageView?.transform = showing ? CGAffineTransform(rotationAngle: CGFloat.pi) : CGAffineTransform.identity
+        dropdownViewController.animationBlock = { [weak self] isShowing in
+            self?.imageView?.transform = isShowing ? CGAffineTransform(rotationAngle: CGFloat.pi) : CGAffineTransform.identity
         }
     }
 
@@ -58,27 +59,29 @@ open class NavigationDropdown: UIButton {
     // MARK: - Action
 
     @objc func buttonTouched(_ button: UIButton) {
-        dropdownController.toggle()
+        dropdownViewController.toggle()
     }
 }
 
 private extension NavigationDropdown {
-    func setTitle(_ item: NavigationDropdownItem) {
+    func setTitle(_ item: Item) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         paragraphStyle.lineBreakMode = .byTruncatingTail
         paragraphStyle.lineHeightMultiple = 0.85
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
-            .foregroundColor: NavigationDropdownConfig.Text.color,
-            .font: NavigationDropdownConfig.Text.font
+            .foregroundColor: Config.Text.color,
+            .font: Config.Text.font
         ]
         let title = NSAttributedString(string: item.title, attributes: attributes)
         setAttributedTitle(title, for: .normal)
+
+        sizeToFit()
     }
 
     func configure() {
-        tintColor = NavigationDropdownConfig.tintColor
+        tintColor = Config.tintColor
 
         titleLabel?.numberOfLines = 2
         titleLabel?.adjustsFontSizeToFitWidth = true
@@ -90,24 +93,27 @@ private extension NavigationDropdown {
 
 // MARK: - Update Items
 public extension NavigationDropdown {
-    func setSelectedItem(_ item: NavigationDropdownItem) {
+    func setSelectedItem(_ item: Item) {
         setTitle(item)
-        sizeToFit()
-        dropdownController.setSelectedItem(item)
+        dropdownViewController.setSelectedItem(item)
     }
 
-    func updateItems(_ items: [NavigationDropdownItem]) {
-        dropdownController.updateItems(items)
+    func updateItems(_ items: [Item]) {
+        dropdownViewController.updateItems(items)
     }
 }
 
 // MARK: - Show/Hide
 public extension NavigationDropdown {
     func showDropdown() {
-        dropdownController.show()
+        dropdownViewController.show()
     }
 
     func hideDropdown() {
-        dropdownController.hide()
+        dropdownViewController.hide()
+    }
+
+    var isShowingDropdown: Bool {
+        return dropdownViewController.isShowing
     }
 }
