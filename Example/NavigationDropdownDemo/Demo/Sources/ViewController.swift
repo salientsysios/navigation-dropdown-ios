@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         "Business",
         "Travel",
         "Education",
-        "Entertainment",
+        "Another long long long long long text two lines",
         "World",
         "Sports",
         "Culture",
