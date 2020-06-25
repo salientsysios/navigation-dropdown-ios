@@ -26,7 +26,7 @@
         <!--View Controller-->
         <scene sceneID="je6-aw-Tzc">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="b2Y-2c-iF6" customClass="ViewController" customModule="DropdownDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="b2Y-2c-iF6" customClass="ViewController" customModule="NavigationDropdownDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ELW-Ro-2KZ"/>
                         <viewControllerLayoutGuide type="bottom" id="kxQ-Al-1bE"/>
@@ -60,7 +60,10 @@
                             <constraint firstItem="O3s-QA-ZGT" firstAttribute="top" secondItem="E0n-Ps-6aD" secondAttribute="topMargin" id="bfi-Nz-My6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QHc-By-zmk"/>
+                    <navigationItem key="navigationItem" id="QHc-By-zmk">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Kap-gZ-Dpn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="9UX-7H-XKL"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="button" destination="Pt8-2C-O93" id="eQY-Bs-UPO"/>
                     </connections>
@@ -72,7 +75,7 @@
         <!--Content Controller-->
         <scene sceneID="tGS-2c-sXX">
             <objects>
-                <tableViewController storyboardIdentifier="ContentController" id="abe-8o-MjA" customClass="ContentController" customModule="DropdownDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ContentController" id="abe-8o-MjA" customClass="ContentController" customModule="NavigationDropdownDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gAC-qa-0KK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
