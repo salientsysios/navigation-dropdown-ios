@@ -5,3 +5,7 @@ public protocol NavigationDropdownItem {
     var title: String { get }
     var icon: UIImage? { get }
 }
+
+public extension NavigationDropdown {
+    typealias Item = NavigationDropdownItem
+}
