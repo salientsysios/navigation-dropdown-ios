@@ -58,7 +58,7 @@ class ViewController: UIViewController {
             "Entertainment"
         ]
         let items: [MyNavigationMenuItem] = texts.enumerated().map { (index, element) in
-            return MyNavigationMenuItem(id: index, title: element, icon: UIImage(named: "firewatch"))
+            return MyNavigationMenuItem(id: String(index), title: element, icon: UIImage(named: "firewatch"))
         }
         titleView = NavigationDropdown.DropdownButton(with: self, items: items )
         titleView?.itemSelectionHandler = { [weak self] item in
@@ -73,11 +73,11 @@ class ViewController: UIViewController {
 }
 
 struct MyNavigationMenuItem: NavigationDropdownItem {
-    let id: Int
+    let id: String
     let title: String
     let icon: UIImage?
 
-    public init(id: Int, title: String, icon: UIImage? = nil) {
+    public init(id: String, title: String, icon: UIImage? = nil) {
         self.id = id
         self.title = title
         self.icon = icon

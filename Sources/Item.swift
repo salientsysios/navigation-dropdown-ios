@@ -3,7 +3,7 @@ import UIKit
 public protocol NavigationDropdownItem {
     typealias SelectionHandler = ((NavigationDropdownItem) -> Void)
 
-    var id: Int { get }
+    var id: String { get }
     var title: String { get }
     var icon: UIImage? { get }
 }
