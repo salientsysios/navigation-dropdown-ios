@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'NavigationDropdown'
   s.summary = 'Navigation Dropdown in Swift'
-  s.version = '1.0.0'
+  s.version = '1.0.1'
   s.homepage = 'https://github.com/salientsys/navigation-dropdown-ios'
   s.license = 'MIT'
   s.author = { "Salient Systems Corporation" => "mobile.salientsys@gmail.com" }

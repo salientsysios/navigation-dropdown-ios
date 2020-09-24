@@ -135,6 +135,11 @@ extension NavigationDropdown.DefaultContentViewController {
         deselectPreviouslySelectedItem(item)
 
         selectedItem = item
+
+        // Also Update the current item into the item list
+        if let idx = items.firstIndex(where: { $0.id == item.id }) {
+            items[idx] = item
+        }
         selectItem(item)
     }
 
@@ -146,7 +151,9 @@ extension NavigationDropdown.DefaultContentViewController {
 
     func selectItem(_ item: NavigationDropdown.Item) {
         if let selectedRow = items.firstIndex(where: { $0.id == item.id }) {
-            tableView.selectRow(at: IndexPath(row: selectedRow, section: 0), animated: true, scrollPosition: .none)
+            let indexPath = IndexPath(row: selectedRow, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         }
     }
 }
